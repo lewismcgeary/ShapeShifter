@@ -1,0 +1,17 @@
+Generate drawable files
+=======================
+
+Place drawable.xml files in drawableTemplates/ with the file named as (e.g.) triangle.xml.
+
+make_hidden.sh takes a filename.xml and generates filename_hidden.xml in tmp/
+
+make_reveal.sh does the same but with filename_reveal
+
+make_all.sh runs the former two scripts on all files in drawableTemplates
+
+install_files.sh moves all the files into the right place
+
+Procedure
+=========
+
+Run make_all.sh, check that files in tmp and shape_list.xml look OK, run install_files.sh

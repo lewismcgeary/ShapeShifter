@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="valid_shapes">
+        <item>triangle</item>
+        <item>pentagon</item>
+        <item>square</item>
+        <item>android</item>
+        <item>star</item>
+    </string-array>
+</resources>
