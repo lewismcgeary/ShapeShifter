@@ -1,6 +1,7 @@
 package io.github.lewismcgeary.shapeshifter;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         shapeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startListening();
+                startListening();
                 revealMic();
             }
         });
@@ -44,12 +45,30 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         micRevealDrawable.start();
     }
 
+    public void hideMic(){
+        AnimatedVectorDrawableCompat micHideDrawable;
+        micHideDrawable = AnimatedVectorDrawableCompat.create(this, R.drawable.mic_hide);
+
+        shapeView.setImageDrawable(micHideDrawable);
+        micHideDrawable.start();
+    }
+
     @Override
     public void shapeIdentified(String shape) {
+        hideMic();
         int resourceId = getResources().getIdentifier(shape.concat("_reveal"), "drawable", getPackageName());
-        AnimatedVectorDrawableCompat selectedShapeAVD = AnimatedVectorDrawableCompat.create(this, resourceId);
-        shapeView.setImageDrawable(selectedShapeAVD);
-        selectedShapeAVD.start();
+        final AnimatedVectorDrawableCompat selectedShapeAVD = AnimatedVectorDrawableCompat.create(this, resourceId);
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                shapeView.setImageDrawable(selectedShapeAVD);
+                selectedShapeAVD.start();
+            }
+
+        }, 1000);
     }
 
     @Override

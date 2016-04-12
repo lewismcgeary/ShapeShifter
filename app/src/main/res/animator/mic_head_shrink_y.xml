@@ -6,6 +6,5 @@
         android:duration="1000"
         android:valueFrom="2"
         android:valueTo="0.2"
-        android:interpolator="@android:interpolator/overshoot"
         />
 </set>
