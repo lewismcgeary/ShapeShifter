@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         shapeView = (ImageView) findViewById(R.id.shape_view);
         returnedText = (TextView) findViewById(R.id.returned_text);
         voiceInputRecognizer = new VoiceInputRecognizer(this, this);
-        micRevealDrawable = AnimatedVectorDrawableCompat.create(this, R.drawable.mic_reveal);
+        micRevealDrawable = AnimatedVectorDrawableCompat.create(this, R.drawable.mic_hide);
         shapeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
