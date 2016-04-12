@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_mic_black_24dp">
+    <target
+        android:animation="@animator/circle_grow_y"
+        android:name="circle_group"/>
+    <target
+        android:animation="@animator/circle_grow_x"
+        android:name="circle_group"/>
+    <target
+        android:animation="@animator/mic_stand_grow"
+        android:name="mic stand clip group"/>
+
+</animated-vector>
