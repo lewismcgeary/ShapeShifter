@@ -20,7 +20,8 @@
     android:layout_height="wrap_content"
     android:id="@+id/shape_view"
     android:layout_centerInParent="true"
-    tools:src="@drawable/android_hidden"
-    app:srcCompat="@drawable/android_hidden"/>
+    app:srcCompat="@drawable/mic_reveal"
+    tools:src="@drawable/mic_reveal"
+/>
 
 </RelativeLayout>

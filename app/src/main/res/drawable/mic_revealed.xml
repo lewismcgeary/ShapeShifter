@@ -19,7 +19,7 @@
     <group
         android:name="mic stand clip group"
         android:pivotY="24"
-        android:scaleY="1">
+        android:scaleY="0">
     <clip-path
         android:name="mic stand clip"
         android:pathData="M0,11 h24 v13 h-24 v-13z"/>

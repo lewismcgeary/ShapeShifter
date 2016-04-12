@@ -2,13 +2,16 @@
 <animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:drawable="@drawable/mic_revealed">
     <target
-        android:animation="@animator/circle_shrink_y"
+        android:animation="@animator/mic_head_shrink_y"
         android:name="circle_group"/>
     <target
-        android:animation="@animator/circle_shrink_x"
+        android:animation="@animator/mic_head_shrink_x"
         android:name="circle_group"/>
     <target
         android:animation="@animator/mic_stand_shrink"
         android:name="mic stand clip group"/>
+    <target
+        android:animation="@animator/mic_stand_alpha_off"
+        android:name="mic stand"/>
 
 </animated-vector>
