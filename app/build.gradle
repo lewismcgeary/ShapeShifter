@@ -10,7 +10,16 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
+        // Stops the Gradle plugin's automatic rasterization of vectors
+        generatedDensities = []
     }
+
+    // Flag to tell aapt to keep the attribute ids around
+    aaptOptions {
+        additionalParameters "--no-version-vectors"
+    }
+
     buildTypes {
         release {
             minifyEnabled false

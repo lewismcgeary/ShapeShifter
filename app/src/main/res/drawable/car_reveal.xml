@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:drawable="@drawable/square_hidden">
+    android:drawable="@drawable/car_hidden">
     <target
         android:animation="@animator/circle_grow_x"
         android:name="circle_group"/>

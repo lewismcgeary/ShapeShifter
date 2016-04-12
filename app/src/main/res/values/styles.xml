@@ -9,15 +9,4 @@
 
     </style>
 
-    <style name="SquareTheme" parent="AppTheme">
-        <item name="android:drawable">@drawable/square_hidden</item>
-    </style>
-
-    <style name="TriangleTheme" parent="AppTheme">
-        <item name="android:drawable">@drawable/triangle_hidden</item>
-    </style>
-
-    <style name="PentagonTheme" parent="AppTheme">
-        <item name="android:drawable">@drawable/pentagon_hidden</item>
-    </style>
 </resources>
