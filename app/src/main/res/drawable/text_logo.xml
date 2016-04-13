@@ -3,7 +3,9 @@
     android:width="192dp"
     android:height="96dp"
     android:viewportWidth="96"
-    android:viewportHeight="48">
+    android:viewportHeight="48"
+    android:name="whole vector"
+    android:alpha="0">
 <group android:name="whole word group"
     android:pivotX="66.4"
     android:pivotY="18.05"

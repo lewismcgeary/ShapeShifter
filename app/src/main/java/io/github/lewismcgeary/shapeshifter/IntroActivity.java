@@ -26,7 +26,7 @@ public class IntroActivity extends AppCompatActivity {
                 logoImageView.setImageResource(R.drawable.mic_hidden);
                 startShapeShifterActivity();
             }
-        },1000);
+        },4000);
     }
 
     private void startShapeShifterActivity(){
