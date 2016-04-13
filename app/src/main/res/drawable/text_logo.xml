@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="96dp"
-    android:height="48dp"
+    android:width="192dp"
+    android:height="96dp"
     android:viewportWidth="96"
     android:viewportHeight="48">
-
+<group android:name="whole word group"
+    android:pivotX="66.4"
+    android:pivotY="18.05"
+    android:scaleX="13"
+    android:scaleY="13">
     <path
         android:name="Shape S"
         android:fillColor="#000000"
@@ -504,4 +508,5 @@ C86.512,20.0679,86.652,20.0799,86.745,20.0799
 C86.82,20.0799,86.941,20.0709,87.109,20.0519
 C87.184,20.0329,87.272,20.0239,87.375,20.0239
 C87.618,20.0239,87.739,20.1549,87.739,20.4159 Z" />
+</group>
 </vector>
