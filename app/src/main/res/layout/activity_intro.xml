@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="io.github.lewismcgeary.shapeshifter.IntroActivity"
-    android:background="#FFEA00">
+    android:background="@color/background">
     <ImageView
         android:id="@+id/logo_image_view"
         android:transitionName="transitionView"
@@ -16,5 +16,6 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:src="@drawable/text_logo"/>
+
 
 </RelativeLayout>
