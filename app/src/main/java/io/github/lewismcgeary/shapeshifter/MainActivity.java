@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
     private TextView returnedText;
     private ImageView shapeView;
     private ImageView emptyMicImageView;
+    private ImageView instructionsImageView;
 
 
 
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         setContentView(R.layout.activity_main);
         shapeView = (ImageView) findViewById(R.id.shape_view);
         emptyMicImageView = (ImageView) findViewById(R.id.empty_mic_image_view);
+        instructionsImageView = (ImageView) findViewById(R.id.instructions_image_view);
         returnedText = (TextView) findViewById(R.id.returned_text);
         voiceInputRecognizer = new VoiceInputRecognizer(this, this);
         revealEmptyMicIcon();
@@ -81,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
 
     @Override
     public void shapeIdentified(String shape) {
+        instructionsImageView.setVisibility(View.INVISIBLE);
         hideMic();
         int resourceId = getResources().getIdentifier(shape.concat("_reveal"), "drawable", getPackageName());
         final AnimatedVectorDrawableCompat selectedShapeAVD = AnimatedVectorDrawableCompat.create(this, resourceId);
