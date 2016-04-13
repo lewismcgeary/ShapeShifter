@@ -2,6 +2,7 @@ package io.github.lewismcgeary.shapeshifter;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.Snackbar;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -108,16 +109,24 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
 
     @Override
     public void noShapeIdentified(String results) {
-        returnedText.setText(results);
+        //returnedText for debugging only
+        //returnedText.setText(results);
         shapeView.setClickable(true);
         hideMic();
+        revealEmptyMicIcon();
+        Snackbar.make(shapeView, "I don't know that shape", Snackbar.LENGTH_LONG).show();
+
     }
 
     @Override
     public void errorRecognizingSpeech(String errorMessage) {
-        returnedText.setText(errorMessage);
+        //returnedText for debugging only
+        //returnedText.setText(errorMessage);
         shapeView.setClickable(true);
         hideMic();
         revealEmptyMicIcon();
+        Snackbar.make(shapeView, "Sorry, I didn't understand", Snackbar.LENGTH_LONG).show();
+
+
     }
 }
