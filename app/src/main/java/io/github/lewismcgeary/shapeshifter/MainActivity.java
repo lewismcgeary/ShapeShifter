@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
             public void onClick(View v) {
                 startListening();
                 revealMic();
+                v.setClickable(false);
             }
         });
     }
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
     }
 
     public void hideMic(){
+
         AnimatedVectorDrawableCompat micHideDrawable;
         micHideDrawable = AnimatedVectorDrawableCompat.create(this, R.drawable.mic_hide);
 
@@ -69,10 +71,28 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
             }
 
         }, 1000);
+        Handler handler2 = new Handler();
+        handler2.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                shapeView.setClickable(true);
+            }
+
+        }, 4000);
+    }
+
+    @Override
+    public void noShapeIdentified(String results) {
+        returnedText.setText(results);
+        shapeView.setClickable(true);
+        hideMic();
     }
 
     @Override
     public void errorRecognizingSpeech(String errorMessage) {
         returnedText.setText(errorMessage);
+        shapeView.setClickable(true);
+        hideMic();
     }
 }

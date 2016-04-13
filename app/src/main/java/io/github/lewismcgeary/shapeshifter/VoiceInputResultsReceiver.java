@@ -7,5 +7,7 @@ public interface VoiceInputResultsReceiver {
 
     public void shapeIdentified(String shape);
 
+    public void noShapeIdentified(String results);
+
     public void errorRecognizingSpeech(String errorMessage);
 }
