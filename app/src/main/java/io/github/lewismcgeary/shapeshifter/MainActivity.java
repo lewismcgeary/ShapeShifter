@@ -38,6 +38,12 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        voiceInputRecognizer.destroy();
+        super.onDestroy();
+    }
+
     public void startListening(){
         voiceInputRecognizer.startListening();
     }

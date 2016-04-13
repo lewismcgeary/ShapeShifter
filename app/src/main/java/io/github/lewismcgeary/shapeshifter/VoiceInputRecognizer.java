@@ -41,6 +41,10 @@ public class VoiceInputRecognizer implements RecognitionListener {
         listeningFinished = false;
     }
 
+    public void destroy(){
+        speechRecognizer.destroy();
+    }
+
     @Override
     public void onReadyForSpeech(Bundle params) {
 
