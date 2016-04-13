@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="@dimen/shape_size"
+    android:height="@dimen/shape_size"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <clip-path
+        android:pathData="M12,0 L19.053,2.292 L23.413,8.292 L23.413,15.708 L19.053,21.708 L12,24
+L4.947,21.708 L0.587,15.708 L0.587,8.292 L4.947,2.292 L12,0 Z" />
+    <group
+        android:name="circle_group"
+        android:scaleX="0.2"
+        android:scaleY="0.2"
+        android:pivotX="12"
+        android:pivotY="12">
+        <path
+            android:name="circle"
+            android:fillColor="#FF000000"
+            android:pathData="M12,12m-10,0a10,10 0,1 1,20 0a10,10 0,1 1,-20 0"/>
+    </group>
+</vector>
