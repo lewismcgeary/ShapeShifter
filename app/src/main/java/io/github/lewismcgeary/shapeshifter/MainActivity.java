@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         emptyMicImageView = (ImageView) findViewById(R.id.empty_mic_image_view);
         returnedText = (TextView) findViewById(R.id.returned_text);
         voiceInputRecognizer = new VoiceInputRecognizer(this, this);
+        revealEmptyMicIcon();
 
 
         shapeView.setOnClickListener(new View.OnClickListener() {
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
             public void onClick(View v) {
                 startListening();
                 revealMic();
+                hideEmptyMicIcon();
                 v.setClickable(false);
             }
         });
@@ -43,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
     public void revealMic(){
         AnimatedVectorDrawableCompat micRevealDrawable;
         micRevealDrawable = AnimatedVectorDrawableCompat.create(this, R.drawable.mic_reveal);
-        emptyMicImageView.setVisibility(View.INVISIBLE);
         shapeView.setImageDrawable(micRevealDrawable);
         micRevealDrawable.start();
     }
@@ -52,9 +53,22 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
 
         AnimatedVectorDrawableCompat micHideDrawable;
         micHideDrawable = AnimatedVectorDrawableCompat.create(this, R.drawable.mic_hide);
-        emptyMicImageView.setVisibility(View.VISIBLE);
         shapeView.setImageDrawable(micHideDrawable);
         micHideDrawable.start();
+    }
+
+    public void revealEmptyMicIcon(){
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                emptyMicImageView.setVisibility(View.VISIBLE);
+            }
+        }, 1000);
+    }
+
+    public void hideEmptyMicIcon(){
+        emptyMicImageView.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -97,5 +111,6 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         returnedText.setText(errorMessage);
         shapeView.setClickable(true);
         hideMic();
+        revealEmptyMicIcon();
     }
 }
