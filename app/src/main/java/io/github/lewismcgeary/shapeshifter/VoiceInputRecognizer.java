@@ -18,6 +18,7 @@ public class VoiceInputRecognizer implements RecognitionListener {
     private VoiceInputResultsReceiver resultsReceiver;
     private Intent recognizerIntent;
     private ArrayList<String> validShapes;
+    private boolean listeningFinished = true;
 
     public VoiceInputRecognizer(Context context, VoiceInputResultsReceiver resultsReceiver) {
         //validShapes = new ArrayList<String>(Arrays.asList("triangle", "square", "pentagon"));
@@ -37,6 +38,7 @@ public class VoiceInputRecognizer implements RecognitionListener {
 
     public void startListening(){
         speechRecognizer.startListening(recognizerIntent);
+        listeningFinished = false;
     }
 
     @Override
@@ -61,7 +63,7 @@ public class VoiceInputRecognizer implements RecognitionListener {
 
     @Override
     public void onEndOfSpeech() {
-
+        listeningFinished = true;
     }
 
     @Override
@@ -99,7 +101,13 @@ public class VoiceInputRecognizer implements RecognitionListener {
                 message = "Didn't understand, please try again.";
                 break;
         }
-        resultsReceiver.errorRecognizingSpeech(message);
+        if(message.equals("No match")) {
+            if(listeningFinished) {
+                resultsReceiver.errorRecognizingSpeech(message);
+            }
+        } else {
+            resultsReceiver.errorRecognizingSpeech(message);
+        }
     }
 
     @Override
@@ -119,7 +127,7 @@ public class VoiceInputRecognizer implements RecognitionListener {
         }
         if (!matchFound){
             text += "No matching shape found";
-            resultsReceiver.errorRecognizingSpeech(text);
+            resultsReceiver.noShapeIdentified(text);
         }
     }
 
