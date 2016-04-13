@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
     private ImageView emptyMicImageView;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
