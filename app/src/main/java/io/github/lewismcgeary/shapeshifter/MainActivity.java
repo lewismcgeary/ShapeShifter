@@ -2,6 +2,7 @@ package io.github.lewismcgeary.shapeshifter;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.Snackbar;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -119,5 +120,8 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         shapeView.setClickable(true);
         hideMic();
         revealEmptyMicIcon();
+        Snackbar.make(shapeView, "Sorry, I didn't understand", Snackbar.LENGTH_LONG).show();
+
+
     }
 }
