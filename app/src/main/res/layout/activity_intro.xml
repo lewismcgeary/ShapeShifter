@@ -10,6 +10,7 @@
     tools:context="io.github.lewismcgeary.shapeshifter.IntroActivity">
     <ImageView
         android:id="@+id/logo_image_view"
+        android:transitionName="transitionView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"

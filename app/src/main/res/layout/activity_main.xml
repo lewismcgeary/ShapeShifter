@@ -19,6 +19,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/shape_view"
+    android:transitionName="transitionView"
     android:layout_centerInParent="true"
     app:srcCompat="@drawable/mic_hidden"
     tools:src="@drawable/mic_hidden"

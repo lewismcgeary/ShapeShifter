@@ -2,31 +2,44 @@ package io.github.lewismcgeary.shapeshifter;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.ImageView;
 
 public class IntroActivity extends AppCompatActivity {
-
+    ImageView logoImageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
-        ImageView logoImageView = (ImageView)findViewById(R.id.logo_image_view);
+        logoImageView = (ImageView)findViewById(R.id.logo_image_view);
         AnimatedVectorDrawableCompat logoZoom = AnimatedVectorDrawableCompat.create(this, R.drawable.logo_zoom);
         logoImageView.setImageDrawable(logoZoom);
         logoZoom.start();
-        logoImageView.setOnClickListener(new View.OnClickListener() {
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
+            public void run() {
+                logoImageView.setImageResource(R.drawable.mic_hidden);
                 startShapeShifterActivity();
             }
-        });
+        },1000);
     }
 
     private void startShapeShifterActivity(){
-        Intent newActivity = new Intent(this, MainActivity.class);
-        startActivity(newActivity);
+        final Intent newActivity = new Intent(this, MainActivity.class);
+        final ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, logoImageView, "transitionView");
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(newActivity, options.toBundle());
+            }
+        },100);
+
     }
 }
