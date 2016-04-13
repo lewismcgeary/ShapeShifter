@@ -13,7 +13,8 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".IntroActivity">
+        <activity android:name=".IntroActivity"
+            android:noHistory="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
