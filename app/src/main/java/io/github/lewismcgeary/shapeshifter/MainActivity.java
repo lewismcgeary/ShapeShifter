@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
     private VoiceInputRecognizer voiceInputRecognizer;
     private TextView returnedText;
     private ImageView shapeView;
+    private ImageView emptyMicImageView;
 
 
     @Override
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         shapeView = (ImageView) findViewById(R.id.shape_view);
+        emptyMicImageView = (ImageView) findViewById(R.id.empty_mic_image_view);
         returnedText = (TextView) findViewById(R.id.returned_text);
         voiceInputRecognizer = new VoiceInputRecognizer(this, this);
 
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
     public void revealMic(){
         AnimatedVectorDrawableCompat micRevealDrawable;
         micRevealDrawable = AnimatedVectorDrawableCompat.create(this, R.drawable.mic_reveal);
-
+        emptyMicImageView.setVisibility(View.INVISIBLE);
         shapeView.setImageDrawable(micRevealDrawable);
         micRevealDrawable.start();
     }
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
 
         AnimatedVectorDrawableCompat micHideDrawable;
         micHideDrawable = AnimatedVectorDrawableCompat.create(this, R.drawable.mic_hide);
-
+        emptyMicImageView.setVisibility(View.VISIBLE);
         shapeView.setImageDrawable(micHideDrawable);
         micHideDrawable.start();
     }
