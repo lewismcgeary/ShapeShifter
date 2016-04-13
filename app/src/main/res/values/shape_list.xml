@@ -3,10 +3,21 @@
     <string-array name="valid_shapes">
         <item>android</item>
         <item>bell</item>
-        <item>bug</item>
         <item>car</item>
+        <item>circle</item>
+        <item>decagon</item>
+        <item>dodecagon</item>
         <item>eye</item>
         <item>heart</item>
+        <item>hendecagon</item>
+        <item>heptagon</item>
+        <item>hexagon</item>
+        <item>nonagon</item>
+        <item>octagon</item>
+        <item>pentagon</item>
+        <item>square</item>
         <item>star</item>
+        <item>triangle</item>
+        <item>undecagon</item>
     </string-array>
 </resources>
