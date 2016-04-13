@@ -76,7 +76,8 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
 
             @Override
             public void run() {
-                shapeView.setClickable(true);
+                startListening();
+                revealMic();
             }
 
         }, 4000);
