@@ -9,6 +9,8 @@ import android.speech.SpeechRecognizer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 
 /**
  * Created by Lewis on 31/03/2016.
@@ -17,12 +19,12 @@ public class VoiceInputRecognizer implements RecognitionListener {
     private SpeechRecognizer speechRecognizer = null;
     private VoiceInputResultsReceiver resultsReceiver;
     private Intent recognizerIntent;
-    private ArrayList<String> validShapes;
+    private HashSet<String> validShapesHashSet;
     private boolean listeningFinished = true;
 
     public VoiceInputRecognizer(Context context, VoiceInputResultsReceiver resultsReceiver) {
-        //validShapes = new ArrayList<String>(Arrays.asList("triangle", "square", "pentagon"));
-        validShapes = new ArrayList<String>(Arrays.asList(context.getResources().getStringArray(R.array.valid_shapes)));
+        List<String> validShapesArray = new ArrayList<>(Arrays.asList(context.getResources().getStringArray(R.array.valid_shapes)));
+        validShapesHashSet = new HashSet<>(validShapesArray);
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(context);
         speechRecognizer.setRecognitionListener(this);
         this.resultsReceiver = resultsReceiver;
@@ -123,7 +125,7 @@ public class VoiceInputRecognizer implements RecognitionListener {
         for (String result : matches){
             result = result.toLowerCase();
             text += result + "\n";
-            if (validShapes.contains(result)) {
+            if (validShapesHashSet.contains(result)) {
                 matchFound = true;
                 resultsReceiver.shapeIdentified(result);
                 break;
