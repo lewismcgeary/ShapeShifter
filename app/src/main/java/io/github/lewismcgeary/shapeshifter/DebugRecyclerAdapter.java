@@ -26,7 +26,7 @@ public class DebugRecyclerAdapter extends RecyclerView.Adapter<DebugRecyclerAdap
         public void onClick(View v) {
             if (v instanceof ImageView){
                 String shape = v.getTag().toString();
-                receiver.shapeIdentified(shape);
+                receiver.debugShapeSelected(shape);
 
             }
         }

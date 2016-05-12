@@ -95,6 +95,20 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
     public void shapeIdentified(String shape) {
         instructionsImageView.setVisibility(View.INVISIBLE);
         hideMic();
+        revealShape(shape, 1000);
+        Handler handler2 = new Handler();
+        handler2.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                startListening();
+                revealMic();
+            }
+
+        }, 4000);
+    }
+
+    private void revealShape(String shape, int delay) {
         int resourceId = getResources().getIdentifier(shape.concat("_reveal"), "drawable", getPackageName());
         final AnimatedVectorDrawableCompat selectedShapeAVD = AnimatedVectorDrawableCompat.create(this, resourceId);
 
@@ -107,17 +121,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
                 selectedShapeAVD.start();
             }
 
-        }, 1000);
-        Handler handler2 = new Handler();
-        handler2.postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                startListening();
-                revealMic();
-            }
-
-        }, 4000);
+        }, delay);
     }
 
     @Override
@@ -141,5 +145,10 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         Snackbar.make(shapeView, "Sorry, I didn't understand", Snackbar.LENGTH_LONG).show();
 
 
+    }
+
+    @Override
+    public void debugShapeSelected(String shape) {
+        revealShape(shape, 0);
     }
 }

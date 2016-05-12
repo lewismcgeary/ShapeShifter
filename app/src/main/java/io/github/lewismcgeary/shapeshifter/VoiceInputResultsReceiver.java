@@ -10,4 +10,6 @@ public interface VoiceInputResultsReceiver {
     public void noShapeIdentified(String results);
 
     public void errorRecognizingSpeech(String errorMessage);
+
+    public void debugShapeSelected(String shape);
 }
