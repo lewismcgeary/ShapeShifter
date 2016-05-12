@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         debugRecyclerView.setHasFixedSize(true);
         debugLayoutManager = new GridLayoutManager(this, 2);
         debugRecyclerView.setLayoutManager(debugLayoutManager);
-        int[] array = {R.drawable.android, R.drawable.bell, R.drawable.car, R.drawable.eye, R.drawable.heart, R.drawable.star};
-        debugAdapter = new DebugRecyclerAdapter(array);
+        String[] array = {"android", "bell", "car", "eye", "heart", "star"};
+        debugAdapter = new DebugRecyclerAdapter(this, array);
         debugRecyclerView.setAdapter(debugAdapter);
 
         shapeView.setOnClickListener(new View.OnClickListener() {
