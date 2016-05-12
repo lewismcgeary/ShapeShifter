@@ -19,9 +19,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
     private ImageView emptyMicImageView;
     private ImageView instructionsImageView;
 
-    private RecyclerView debugRecyclerView;
-    private RecyclerView.LayoutManager debugLayoutManager;
-    private RecyclerView.Adapter debugAdapter;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,15 +30,19 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         returnedText = (TextView) findViewById(R.id.returned_text);
         voiceInputRecognizer = new VoiceInputRecognizer(this, this);
         revealEmptyMicIcon();
-
-        debugRecyclerView = (RecyclerView) findViewById(R.id.debug_recycler_view);
-        debugRecyclerView.setHasFixedSize(true);
-        debugLayoutManager = new GridLayoutManager(this, 2);
-        debugRecyclerView.setLayoutManager(debugLayoutManager);
-        String[] array = getResources().getStringArray(R.array.valid_shapes);
-        debugAdapter = new DebugRecyclerAdapter(this, array);
-        debugRecyclerView.setAdapter(debugAdapter);
-
+        //in debug builds, display recycler view of valid shapes to allow easy testing of animations
+        if (BuildConfig.DEBUG) {
+            RecyclerView debugRecyclerView;
+            RecyclerView.LayoutManager debugLayoutManager;
+            RecyclerView.Adapter debugAdapter;
+            debugRecyclerView = (RecyclerView) findViewById(R.id.debug_recycler_view);
+            debugRecyclerView.setHasFixedSize(true);
+            debugLayoutManager = new GridLayoutManager(this, 2);
+            debugRecyclerView.setLayoutManager(debugLayoutManager);
+            String[] array = getResources().getStringArray(R.array.valid_shapes);
+            debugAdapter = new DebugRecyclerAdapter(this, array);
+            debugRecyclerView.setAdapter(debugAdapter);
+        }
         shapeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
