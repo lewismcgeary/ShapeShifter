@@ -47,4 +47,10 @@
         app:srcCompat="@drawable/mic_empty"
         android:visibility="invisible"/>
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/debug_recycler_view"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:layout_alignParentBottom="true"/>
+
 </RelativeLayout>
