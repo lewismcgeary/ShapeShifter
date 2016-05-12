@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,9 +19,10 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
     private ImageView emptyMicImageView;
     private ImageView instructionsImageView;
 
+    private RecyclerView debugRecyclerView;
+    private RecyclerView.LayoutManager debugLayoutManager;
+    private RecyclerView.Adapter debugAdapter;
 
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -30,6 +33,13 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         voiceInputRecognizer = new VoiceInputRecognizer(this, this);
         revealEmptyMicIcon();
 
+        debugRecyclerView = (RecyclerView) findViewById(R.id.debug_recycler_view);
+        debugRecyclerView.setHasFixedSize(true);
+        debugLayoutManager = new GridLayoutManager(this, 2);
+        debugRecyclerView.setLayoutManager(debugLayoutManager);
+        int[] array = {R.drawable.android, R.drawable.bell, R.drawable.car, R.drawable.eye, R.drawable.heart, R.drawable.star};
+        debugAdapter = new DebugRecyclerAdapter(array);
+        debugRecyclerView.setAdapter(debugAdapter);
 
         shapeView.setOnClickListener(new View.OnClickListener() {
             @Override
