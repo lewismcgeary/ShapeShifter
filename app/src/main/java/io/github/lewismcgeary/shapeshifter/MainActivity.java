@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,7 +21,6 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
 
 
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -29,8 +30,19 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         returnedText = (TextView) findViewById(R.id.returned_text);
         voiceInputRecognizer = new VoiceInputRecognizer(this, this);
         revealEmptyMicIcon();
-
-
+        //in debug builds, display recycler view of valid shapes to allow easy testing of animations
+        if (BuildConfig.DEBUG) {
+            RecyclerView debugRecyclerView;
+            RecyclerView.LayoutManager debugLayoutManager;
+            RecyclerView.Adapter debugAdapter;
+            debugRecyclerView = (RecyclerView) findViewById(R.id.debug_recycler_view);
+            debugRecyclerView.setHasFixedSize(true);
+            debugLayoutManager = new GridLayoutManager(this, 2);
+            debugRecyclerView.setLayoutManager(debugLayoutManager);
+            String[] array = getResources().getStringArray(R.array.valid_shapes);
+            debugAdapter = new DebugRecyclerAdapter(this, array);
+            debugRecyclerView.setAdapter(debugAdapter);
+        }
         shapeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,6 +97,20 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
     public void shapeIdentified(String shape) {
         instructionsImageView.setVisibility(View.INVISIBLE);
         hideMic();
+        revealShape(shape, 1000);
+        Handler handler2 = new Handler();
+        handler2.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                startListening();
+                revealMic();
+            }
+
+        }, 4000);
+    }
+
+    private void revealShape(String shape, int delay) {
         int resourceId = getResources().getIdentifier(shape.concat("_reveal"), "drawable", getPackageName());
         final AnimatedVectorDrawableCompat selectedShapeAVD = AnimatedVectorDrawableCompat.create(this, resourceId);
 
@@ -97,17 +123,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
                 selectedShapeAVD.start();
             }
 
-        }, 1000);
-        Handler handler2 = new Handler();
-        handler2.postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                startListening();
-                revealMic();
-            }
-
-        }, 4000);
+        }, delay);
     }
 
     @Override
@@ -131,5 +147,10 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         Snackbar.make(shapeView, "Sorry, I didn't understand", Snackbar.LENGTH_LONG).show();
 
 
+    }
+
+    @Override
+    public void debugShapeSelected(String shape) {
+        revealShape(shape, 0);
     }
 }
