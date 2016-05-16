@@ -44,8 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        app:srcCompat="@drawable/mic_empty"
-        android:visibility="invisible"/>
+        app:srcCompat="@drawable/mic_mini_revealed" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/debug_recycler_view"
