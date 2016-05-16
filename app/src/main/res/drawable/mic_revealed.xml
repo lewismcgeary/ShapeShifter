@@ -16,16 +16,17 @@
             android:fillColor="#FF000000"
             android:pathData="M12,12m-10,0a10,10 0,1 1,20 0a10,10 0,1 1,-20 0"/>
     </group>
-    <group
-        android:name="mic stand clip group"
-        android:pivotY="24"
-        android:scaleY="0">
+
     <clip-path
         android:name="mic stand clip"
+        android:pathData="M17.3,11c0,3 -2.54,5.1 -5.3,5.1S6.7,14 6.7,11L5,11c0,3.41 2.72,6.23 6,6.72L11,21h2v-3.28c3.28,-0.48 6,-3.3 6,-6.72h-1.7z"/>
+    <group
+        android:name="mic stand scale group"
+        android:pivotY="24"
+        android:scaleY="0">
+    <path
+        android:name="mic stand fill"
+        android:fillColor="#FF000000"
         android:pathData="M0,11 h24 v13 h-24 v-13z"/>
     </group>
-    <path
-        android:name="mic stand"
-        android:fillColor="#FF000000"
-        android:pathData="M17.3,11c0,3 -2.54,5.1 -5.3,5.1S6.7,14 6.7,11L5,11c0,3.41 2.72,6.23 6,6.72L11,21h2v-3.28c3.28,-0.48 6,-3.3 6,-6.72h-1.7z"/>
 </vector>
