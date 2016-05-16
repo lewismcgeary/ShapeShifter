@@ -1,0 +1,19 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="@dimen/shape_size"
+        android:height="@dimen/shape_size"
+        android:viewportWidth="24.0"
+        android:viewportHeight="24.0">
+    <clip-path
+        android:pathData="M20,6h-4L16,4c0,-1.11 -0.89,-2 -2,-2h-4c-1.11,0 -2,0.89 -2,2v2L4,6c-1.11,0 -1.99,0.89 -1.99,2L2,19c0,1.11 0.89,2 2,2h16c1.11,0 2,-0.89 2,-2L22,8c0,-1.11 -0.89,-2 -2,-2zM14,6h-4L10,4h4v2z"/>
+    <group
+        android:name="circle_group"
+        android:scaleX="0.2"
+        android:scaleY="0.2"
+        android:pivotX="12"
+        android:pivotY="12">
+        <path
+            android:name="circle"
+            android:fillColor="#FF000000"
+            android:pathData="M12,12m-10,0a10,10 0,1 1,20 0a10,10 0,1 1,-20 0"/>
+    </group>
+</vector>

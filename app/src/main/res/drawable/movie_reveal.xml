@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/movie_hidden">
+    <target
+        android:animation="@animator/circle_grow_x"
+        android:name="circle_group"/>
+    <target
+        android:animation="@animator/circle_grow_y"
+        android:name="circle_group"/>
+    <target
+        android:animation="@animator/circle_shrink_x"
+        android:name="circle_group"/>
+    <target
+        android:animation="@animator/circle_shrink_y"
+        android:name="circle_group"/>
+</animated-vector>

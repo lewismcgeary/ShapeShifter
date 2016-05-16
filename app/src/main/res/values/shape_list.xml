@@ -1,23 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="valid_shapes">
+        <item>alarm</item>
         <item>android</item>
+        <item>art</item>
+        <item>battery</item>
+        <item>bed</item>
         <item>bell</item>
+        <item>birthday</item>
+        <item>bluetooth</item>
+        <item>boat</item>
+        <item>bookmark</item>
+        <item>bus</item>
+        <item>cab</item>
+        <item>cake</item>
+        <item>camera</item>
         <item>car</item>
+        <item>cart</item>
         <item>circle</item>
+        <item>clock</item>
+        <item>cloud</item>
+        <item>coffee</item>
+        <item>couch</item>
         <item>decagon</item>
+        <item>dislike</item>
         <item>dodecagon</item>
+        <item>eject</item>
         <item>eye</item>
+        <item>flag</item>
+        <item>folder</item>
+        <item>hand</item>
         <item>heart</item>
         <item>hendecagon</item>
         <item>heptagon</item>
         <item>hexagon</item>
+        <item>hotspot</item>
+        <item>house</item>
+        <item>human</item>
+        <item>key</item>
+        <item>like</item>
+        <item>lorry</item>
+        <item>mail</item>
+        <item>motorbike</item>
+        <item>mountain</item>
+        <item>mouse</item>
+        <item>movie</item>
+        <item>music</item>
         <item>nonagon</item>
         <item>octagon</item>
+        <item>paintbrush</item>
+        <item>paw</item>
+        <item>pencil</item>
         <item>pentagon</item>
+        <item>pizza</item>
+        <item>plane</item>
+        <item>power</item>
+        <item>print</item>
+        <item>puzzle</item>
+        <item>radio</item>
+        <item>record</item>
+        <item>run</item>
+        <item>save</item>
+        <item>selfie</item>
+        <item>shopping</item>
+        <item>smart</item>
         <item>square</item>
         <item>star</item>
+        <item>store</item>
+        <item>suitcase</item>
+        <item>sun</item>
+        <item>sunshine</item>
+        <item>taxi</item>
+        <item>trash</item>
+        <item>tree</item>
         <item>triangle</item>
+        <item>trolley</item>
+        <item>truck</item>
         <item>undecagon</item>
+        <item>wifi</item>
     </string-array>
 </resources>
