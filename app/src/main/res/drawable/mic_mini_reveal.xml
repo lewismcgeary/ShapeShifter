@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/mic_mini_hidden">
+    <target
+        android:animation="@animator/mic_mini_fade_in"
+        android:name="whole vector"/>
+</animated-vector>

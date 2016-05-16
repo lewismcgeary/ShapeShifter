@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
     private VoiceInputRecognizer voiceInputRecognizer;
     private TextView returnedText;
     private ImageView shapeView;
-    private ImageView emptyMicImageView;
+    private ImageView micMiniImageView;
     private ImageView instructionsImageView;
 
 
@@ -25,11 +25,11 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         shapeView = (ImageView) findViewById(R.id.shape_view);
-        emptyMicImageView = (ImageView) findViewById(R.id.empty_mic_image_view);
+        micMiniImageView = (ImageView) findViewById(R.id.empty_mic_image_view);
         instructionsImageView = (ImageView) findViewById(R.id.instructions_image_view);
         returnedText = (TextView) findViewById(R.id.returned_text);
         voiceInputRecognizer = new VoiceInputRecognizer(this, this);
-        revealEmptyMicIcon();
+        revealClickableMicIcon();
         //in debug builds, display recycler view of valid shapes to allow easy testing of animations
         if (BuildConfig.DEBUG) {
             RecyclerView debugRecyclerView;
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
             public void onClick(View v) {
                 startListening();
                 revealMic();
-                hideEmptyMicIcon();
+                hideClickableMicIcon();
                 v.setClickable(false);
             }
         });
@@ -79,18 +79,18 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         micHideDrawable.start();
     }
 
-    public void revealEmptyMicIcon(){
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                emptyMicImageView.setVisibility(View.VISIBLE);
-            }
-        }, 1000);
+    public void revealClickableMicIcon(){
+        AnimatedVectorDrawableCompat micMiniReveal;
+        micMiniReveal = AnimatedVectorDrawableCompat.create(this, R.drawable.mic_mini_reveal);
+        micMiniImageView.setImageDrawable(micMiniReveal);
+        micMiniReveal.start();
     }
 
-    public void hideEmptyMicIcon(){
-        emptyMicImageView.setVisibility(View.INVISIBLE);
+    public void hideClickableMicIcon(){
+        AnimatedVectorDrawableCompat micMiniHide;
+        micMiniHide = AnimatedVectorDrawableCompat.create(this, R.drawable.mic_mini_hide);
+        micMiniImageView.setImageDrawable(micMiniHide);
+        micMiniHide.start();
     }
 
     @Override
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         //returnedText.setText(results);
         shapeView.setClickable(true);
         hideMic();
-        revealEmptyMicIcon();
+        revealClickableMicIcon();
         Snackbar.make(shapeView, "I don't know that shape", Snackbar.LENGTH_LONG).show();
 
     }
@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements VoiceInputResults
         //returnedText.setText(errorMessage);
         shapeView.setClickable(true);
         hideMic();
-        revealEmptyMicIcon();
+        revealClickableMicIcon();
         Snackbar.make(shapeView, "Sorry, I didn't understand", Snackbar.LENGTH_LONG).show();
 
 
