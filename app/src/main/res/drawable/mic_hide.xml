@@ -10,8 +10,4 @@
     <target
         android:animation="@animator/mic_stand_shrink"
         android:name="mic stand scale group"/>
-    <target
-        android:animation="@animator/mic_stand_alpha_off"
-        android:name="mic stand fill"/>
-
 </animated-vector>

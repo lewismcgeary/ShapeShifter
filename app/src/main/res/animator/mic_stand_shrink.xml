@@ -5,6 +5,6 @@
         android:propertyName="scaleY"
         android:valueFrom="1"
         android:valueTo="0"
-        android:interpolator="@android:interpolator/anticipate"
+        android:interpolator="@android:interpolator/accelerate_decelerate"
         />
 </set>

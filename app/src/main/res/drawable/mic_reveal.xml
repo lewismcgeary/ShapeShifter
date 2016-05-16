@@ -9,6 +9,5 @@
         android:name="circle_group"/>
     <target
         android:animation="@animator/mic_stand_grow"
-        android:name="mic stand clip group"/>
-
+        android:name="mic stand scale group"/>
 </animated-vector>
